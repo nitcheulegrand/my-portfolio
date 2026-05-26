@@ -59,17 +59,21 @@ export default function Home({ isEditable = false }) {
                 <ServerAPIProvider.IsLoaded>
                     <div className={`flex justify-between flex-wrap gap-4 border-b-2 border-${getBgColor(100)} pb-5`}>
                         <h2 className="text-2xl font-bold px-5">Work Experiences and Projects</h2>
+                        {isEditable &&
                         <div className="print:hidden w-full md:w-auto">
                             <Link to="/admin/experience" className={`bg-${getBgColor(500)} text-${getTextColor(900)} hover:bg-${getBgColor(700)} rounded-lg px-4 p-3 mx-5`}>Add Experience</Link>
                         </div>
+                        }
                     </div>
                     
                     {state.experiences.map((experience, index) => <ExperienceItem experience={experience} index={index} key={"experience-" + index} editable={isEditable} />)}
                     <div className={`flex justify-between flex-wrap gap-4 border-b-2 border-${getBgColor(100)} py-5`}>
                         <h2 className="text-2xl font-bold px-5">Education and Certifications</h2>
+                        {isEditable &&
                         <div className="print:hidden w-full md:w-auto">
                             <Link to="/admin/education" className={`bg-${getBgColor(500)} text-${getTextColor(900)} hover:bg-${getBgColor(700)} rounded-lg px-4 p-3 mx-5`}>Add Education</Link>
                         </div>
+                        }
                     </div>
                     {state.educations.map((education, index) => <EducationItem education={education} index={index} key={"education-" + index} editable={isEditable} />)}
                 </ServerAPIProvider.IsLoaded>
