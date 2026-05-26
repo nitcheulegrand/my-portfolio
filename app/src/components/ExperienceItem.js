@@ -33,6 +33,7 @@ export default function ExperienceItem({experience, index, editable = false}) {
                 <small className="font-medium">From {moment(experience.from).format("MMMM YYYY")} to {moment(experience.to).format("MMMM YYYY")}</small>
                 <p>{experience.description}</p>
             </div>
+            {experience.projects.length>0 &&
             <div>
                 <h4 className="text-lg mt-3 font-medium">Projects</h4>
                 <div className="mt-2 p_projects">
@@ -67,6 +68,7 @@ export default function ExperienceItem({experience, index, editable = false}) {
                     )}
                 </div>
             </div>
+            }
         </section>
     );
 }
