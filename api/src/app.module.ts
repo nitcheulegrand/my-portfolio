@@ -18,7 +18,6 @@ const ATLAS_URI = process.env.ATLAS_URI ?? "";
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, "..", "public"),
       serveRoot: "/",
-      renderPath: "*",
       exclude: ["/api/(.*)"]
     }),
     ExperienceModule,

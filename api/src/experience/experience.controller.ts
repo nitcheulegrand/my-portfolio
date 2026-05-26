@@ -2,9 +2,8 @@ import { Body, Controller, Get, Post, Request, Delete, Put } from '@nestjs/commo
 import { ExperienceService } from './experience.service';
 import { Experience } from './experience.schema';
 import { ProjectService } from 'src/project/project.service';
-import mongoose from 'mongoose';
 
-@Controller('experience')
+@Controller('api/experience')
 export class ExperienceController {
     constructor(
         private experienceService: ExperienceService,

@@ -2,7 +2,7 @@ import { Body, Request, Controller, Get, Post, Put, Delete } from '@nestjs/commo
 import { EducationService } from './education.service';
 import { Education } from './education.schema';
 
-@Controller('education')
+@Controller('api/education')
 export class EducationController {
     constructor(
         private educationService: EducationService
