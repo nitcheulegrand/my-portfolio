@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useThemeContext } from "../context/theme";
 
 export default function LoginForm({ onCancel=()=>{} }) {
@@ -6,10 +7,25 @@ export default function LoginForm({ onCancel=()=>{} }) {
         getTextColor
     } = useThemeContext(); 
 
-    const isProcessing = false;
+    const [isProcessing, setIsProcessing] = useState(false);
+
+    const handleLoginForm = (e) => {
+        setIsProcessing(true);
+        e.preventDefault();
+        new Promise((resolve, reject) => {
+            setTimeout(() => reject({message: "Username or password is incorrect."}), 1000);
+        })
+        .then((response) => {})
+        .catch((error) => {
+            alert(error.message);
+        })
+        .finally(() => {
+            setIsProcessing(false);
+        })
+    }
 
     return (
-        <form className="flex flex-col p-7 gap-3 w-full md:min-w-1/3">
+        <form className="flex flex-col p-7 gap-3 w-full md:min-w-1/3" onSubmit={handleLoginForm}>
             <div className="col-span-2">
                 <label className="block mb-2 font-medium" htmlFor="login">Login</label>
                 <input type="text" className={`w-full p-3 rounded border border-${getBgColor(300)} focus:border-${getBgColor(400)} rounded-md`} placeholder="e.g. augustin.legrand" name="login" id="login" />
